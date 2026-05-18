@@ -3,47 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\NivelAcesso;
+use Exception;
 use Illuminate\Http\Request;
 
 class NivelAcessoController extends Controller{
 
-    // public function listar(){
-    //     $produtos = Produto::with(['setor','detalhe'])->get();
-    //     return view('listar', compact('produtos'));
-
+    public function listar(){
+        $nivelAcesso = NivelAcesso::all();
+        return view('nivel-acesso.listar', compact('nivelAcesso'));
+    }
 
     public function cadastro(){
         return view('nivel-acesso.cadastro');
     }
 
-//     public function add(Request $request){
+    public function add(Request $request){
 
-//         $request->validate([
-//             'nome' => 'required|string|max:255',
-//             'quantidade' => 'required|string|max:255',
-//             'preco' => 'required|string|max:255',
-//             'descricao' => 'required|string|max:255',
-//             'tamanho' => 'required|string|max:255',
-//             'peso' => 'required|numeric|max:255',
-//             'setor_id' => 'required|exists:setores,id'
-//         ]);
+        $request->validate([
+            'nivelAcesso' => 'required|string|max:255',
+        ]);
 
-//         $detalhe = DetalheProduto::create([
-//             'descricao' => $request->descricao,
-//             'tamanho' => $request->tamanho,
-//             'peso' => $request->peso,
-//         ]);
+        try{
+        $nivelAcesso = NivelAcesso::create([
+            'nivel_acesso' => $request->nivelAcesso,
+        ]);
 
-//         Produto::create([
-//             'nome' => $request->nome,
-//             'quantidade' => $request->quantidade,
-//             'preco' => $request->preco,
-//             'setor_id' => $request->setor_id,
-//             'detalhes_id' => $detalhe->id
-//         ]);
-
-//         return redirect()->back()->with('success','Produto cadastrado com sucesso!');
-//     }
+        return redirect()->back()->with('success','Nivel cadastrado com sucesso!');
+        }catch(\Exception $e){
+            return redirect()->back()->with('error','Erro ao cadastrar o nivel de acesso: ' . $e->getMessage());
+            
+        }
+    }
 
 //     public function atualizar($id){
 //         $produto = Produto::with('detalhe')->findOrFail($id);
@@ -81,10 +71,10 @@ class NivelAcessoController extends Controller{
 //         return redirect()->back()->with('success','Produto atualizado com sucesso!');
 //     }
 
-//     public function deletar($id){
-//         $produto = Produto::findOrFail($id);
-//         $produto->delete();
+        public function deletar(int $id){
+            $nivelAcesso = NivelAcesso::findOrFail($id);
+            $nivelAcesso->delete();
 
-//         return redirect()->route('produto.listar')->with('success','Produto excluído com sucesso!');
-//     }
+            return redirect()->route('nivel-acesso.listar')->with('success','Nível de Acesso excluído com sucesso!');
+        }
 }

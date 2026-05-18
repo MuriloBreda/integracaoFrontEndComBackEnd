@@ -302,20 +302,51 @@
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div class="col-md-12">
                   <div class="card">
-                    <h5 class="card-header text-center">Cadastro de Nível de Acesso⬇️</h5>
+                    <h5 class="card-header text-center">Lista de Níveis de Acesso</h5>
                     <div class="card-body">
-                      <form action="{{ route('nivel-acesso.salvar') }}" method="POST">
-                        @csrf
-                        <div>
-                          <label for="nivelAcesso" class="form-label">Nível de Acesso</label>
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="nivelAcesso"
-                            placeholder="Ex: (Administrador | Aluno | Visitante)"/>
-                              <button type="submit"class="btn btn-primary col-md-12 mt-4">Cadastrar</button>
-                        </div>
-                      </form>
+                      <div class="card">
+                <h5 class="card-header">Listagem</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Nível de Acesso</th>
+                        <th>Criado em</th>
+                        <th>Atualizado em</th>
+                        <th>Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    @forelse($nivelAcesso as $nivel)
+                      <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nivel->nivel_acesso}}</strong></td>
+                        <td>
+                            {{ $nivel->created_at }}
+                        </td>
+                        <td><span class="badge bg-label-primary me-1">{{$nivel->updated_at}}</span></td>
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Editar</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-1"></i> Deletar</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      @empty
+                      <tr>Nenhum Nível de Acesso Encontrado</tr>
+                      @endforelse
+                    </tbody>
+                  </table>
+                </div>
+              </div>
                     </div>
                   </div>
                 </div>
