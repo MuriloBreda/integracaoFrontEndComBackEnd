@@ -312,6 +312,7 @@
                             type="text"
                             class="form-control"
                             id="nivelAcesso"
+                            name="nivelAcesso"
                             placeholder="Ex: (Administrador | Aluno | Visitante)"/>
                               <button type="submit"class="btn btn-primary col-md-12 mt-4">Cadastrar</button>
                         </div>
