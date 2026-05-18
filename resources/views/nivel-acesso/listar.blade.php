@@ -333,9 +333,14 @@
                               <a class="dropdown-item" href="javascript:void(0);"
                                 ><i class="bx bx-edit-alt me-1"></i> Editar</a
                               >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Deletar</a
-                              >
+                              <form action="{{ route('nivel-acesso.deletar', $nivel->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="dropdown-item">
+                                    <i class="bx bx-trash me-1"></i> Deletar
+                                </button>
+                            </form>
                             </div>
                           </div>
                         </td>
