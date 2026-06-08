@@ -11,7 +11,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Demo: Dashboard - Analytics | Sneat - Bootstrap Dashboard FREE</title>
+     <title>Cadastro | Nivel Acesso</title>
 
     <meta name="description" content="" />
 
@@ -19,10 +19,10 @@
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com&quot; />
-    <link rel="preconnect" href="https://fonts.gstatic.com&quot; crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap&quot;
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet" />
 
     <link rel="stylesheet" href="../assets/vendor/fonts/iconify-icons.css" />
@@ -60,7 +60,7 @@
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
+            <a href="{{ route('welcome') }}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <span class="text-primary">
                   <svg
@@ -112,7 +112,7 @@
                   </svg>
                 </span>
               </span>
-              <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
+              <span class="app-brand-text demo menu-text fw-bold ms-2">Cadastros</span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -125,15 +125,16 @@
           <div class="menu-inner-shadow"></div>
 
           <ul class="menu-inner py-1">
+
             <!-- Apps & Pages -->
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Área de Cadastro</span>
+              <span class="menu-header-text">Área de cadastro</span>
             </li>
             <!-- Pages -->
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                <div class="text-truncate" data-i18n="Account Settings">Nível de Acesso</div>
+                <div class="text-truncate" data-i18n="Account Settings">Nível de acesso</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
@@ -142,17 +143,16 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Notifications">Listar</div>
+                  <a href="{{ route('nivel-acesso.listar') }}" class="menu-link">
+                    <div class="text-truncate" data-i18n="Notifications">Listagem</div>
                   </a>
                 </li>
-                
               </ul>
             </li>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-                <div class="text-truncate" data-i18n="Authentications">Usuários</div>
+                <div class="text-truncate" data-i18n="Authentications">Usuário</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
@@ -162,16 +162,15 @@
                 </li>
                 <li class="menu-item">
                   <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div class="text-truncate" data-i18n="Basic">Listar</div>
+                    <div class="text-truncate" data-i18n="Basic">Listagem</div>
                   </a>
                 </li>
-                
               </ul>
             </li>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div class="text-truncate" data-i18n="Misc">Turma</div>
+                <div class="text-truncate" data-i18n="Misc">Turmas</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
@@ -181,10 +180,11 @@
                 </li>
                 <li class="menu-item">
                   <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Under Maintenance">Listar</div>
+                    <div class="text-truncate" data-i18n="Under Maintenance">Listagem</div>
                   </a>
                 </li>
               </ul>
+            </li>
             </li>
           </ul>
         </aside>
@@ -222,7 +222,7 @@
                 <li class="nav-item lh-1 me-4">
                   <a
                     class="github-button"
-                    href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free&quot;
+                    href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free"
                     data-icon="octicon-star"
                     data-size="large"
                     data-show-count="true"
@@ -293,30 +293,28 @@
               </ul>
             </div>
           </nav>
-
           <!-- / Navbar -->
-
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
-                <div class="col-md-12">
+              <div class="col-md-12">
                   <div class="card">
-                    <h5 class="card-header text-center">Cadastro de Nível de Acesso⬇️</h5>
+                    <h5 class="card-header text-center">Cadastro de Nível de Acesso ⬇️</h5>
                     <div class="card-body">
-                      <form action="{{ route('nivel-acesso.salvar') }}" method="POST">
+                      <form action="{{ route('nivel-acesso.salvar')}}" method="POST">
                         @csrf
                         <div>
                           <label for="nivelAcesso" class="form-label">Nível de Acesso</label>
                           <input
-                            type="text"
-                            class="form-control"
-                            id="nivelAcesso"
-                            name="nivelAcesso"
-                            placeholder="Ex: (Administrador | Aluno | Visitante)"/>
-                              <button type="submit"class="btn btn-primary col-md-12 mt-4">Cadastrar</button>
-                        </div>
-                      </form>
+                          type="text"
+                          class="form-control"
+                          id="nivelAcesso"
+                          name="nivelAcesso"
+                          placeholder="Ex: ( Administrador | Aluno | Visitante )"/>
+                          <button type="submit" class="btn btn-primary col-md-12 mt-4">Cadastrar</button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -333,34 +331,34 @@
                     <script>
                       document.write(new Date().getFullYear());
                     </script>
-                    , made with ❤️ by
-                    <a href="https://themeselection.com&quot; target="_blank" class="footer-link">ThemeSelection</a>
+                    made by
+                    <a href="https://themeselection.com" target="_blank" class="footer-link">ThurDev</a>
                   </div>
                   <div class="d-none d-lg-inline-block">
                     <a
-                      href="https://themeselection.com/item/category/admin-templates/&quot;
+                      href="https://themeselection.com/item/category/admin-templates/"
                       target="_blank"
                       class="footer-link me-4"
                       >Admin Templates</a
                     >
 
-                    <a href="https://themeselection.com/license/&quot; class="footer-link me-4" target="_blank">License</a>
+                    <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
                     <a
-                      href="https://themeselection.com/item/category/bootstrap-admin-templates/&quot;
+                      href="https://themeselection.com/item/category/bootstrap-admin-templates/"
                       target="_blank"
                       class="footer-link me-4"
                       >Bootstrap Dashboard</a
                     >
 
                     <a
-                      href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/&quot;
+                      href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
                       target="_blank"
                       class="footer-link me-4"
                       >Documentation</a
                     >
 
                     <a
-                      href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/issues&quot;
+                      href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/issues"
                       target="_blank"
                       class="footer-link"
                       >Support</a
@@ -407,8 +405,9 @@
     <script src="../assets/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag before closing body tag for github widget button. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>;
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+    {{-- Importação Sweet Alert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
@@ -417,21 +416,16 @@
           title: titulo,
           text: texto,
           icon: icone
-        });
+      });
       }
     </script>
 
     @if(session('success'))
-      <script>
-        exibeSweetAlert('success', 'Sucesso!', '{{ session('success') }}');
-      </script>
+        <script>exibeSweetAlert('success', 'Sucesso!', '{{ session('success') }}')</script>
     @endif
 
-    @if($errors->any())
-      <script>
-        exibeSweetAlert('error', 'Erro!', '{{ implode('|', $errors->all()) }}');
-      </script>
+    @if ($errors->any())
+        <script>exibeSweetAlert('error', 'Erro!', '{{ implode('|', $errors->all()) }}')</script>
     @endif
-
   </body>
 </html>

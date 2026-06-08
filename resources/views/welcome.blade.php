@@ -137,16 +137,15 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="{{ route('nivel-acesso.cadastro') }}" class="menu-link">
-                    <div class="text-truncate" data-i18n="Account">Cadastrar</div>
+                  <a href="{{ route('nivel-acesso.cadastro')}}" class="menu-link">
+                    <div class="text-truncate" data-i18n="Notifications">Cadastro </div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Notifications">Listar</div>
+                  <a href="{{ route('nivel-acesso.listar')}}" class="menu-link">
+                    <div class="text-truncate" data-i18n="Connections">Listagem</div>
                   </a>
                 </li>
-                
               </ul>
             </li>
             <li class="menu-item">
@@ -157,21 +156,20 @@
               <ul class="menu-sub">
                 <li class="menu-item">
                   <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div class="text-truncate" data-i18n="Basic">Cadastro</div>
+                    <div class="text-truncate" data-i18n="Basic">Cadastrar</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div class="text-truncate" data-i18n="Basic">Listar</div>
+                    <div class="text-truncate" data-i18n="Basic">Listagem</div>
                   </a>
                 </li>
-                
               </ul>
             </li>
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                <div class="text-truncate" data-i18n="Misc">Turma</div>
+                <div class="text-truncate" data-i18n="Misc">Turmas</div>
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
@@ -181,7 +179,7 @@
                 </li>
                 <li class="menu-item">
                   <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Under Maintenance">Listar</div>
+                    <div class="text-truncate" data-i18n="Under Maintenance">Listagem</div>
                   </a>
                 </li>
               </ul>
@@ -311,8 +309,8 @@
                             Cadastre, Liste e Exclua os dados.
                           </p>
                           {{-- Botões do sistema --}}
-                          <a href="{{ route('nivel-acesso.cadastro') }}" class="btn btn-sm btn-outline-primary">Cadastro de Nível de Acesso</a>
-                          <a href="javascript:;" class="btn btn-sm btn-outline-success">Cadastro de Usuários</a>
+                          <a href="{{ route('nivel-acesso.cadastro')}}" class="btn btn-sm btn-outline-primary">Cadastro de Nível de Acesso</a>
+                          <a href="{{ route('usuarios.cadastro') }}" class="btn btn-sm btn-outline-success">Cadastro de Usuários</a>
                           <a href="javascript:;" class="btn btn-sm btn-outline-danger">Cadastro de Turmas</a>
                         </div>
                       </div>
@@ -345,34 +343,34 @@
                     <script>
                       document.write(new Date().getFullYear());
                     </script>
-                    , made with ❤️ by
-                    <a href="https://themeselection.com&quot; target="_blank" class="footer-link">ThemeSelection</a>
+                    made by
+                    <a href="https://themeselection.com" target="_blank" class="footer-link">ThurDev</a>
                   </div>
                   <div class="d-none d-lg-inline-block">
                     <a
-                      href="https://themeselection.com/item/category/admin-templates/&quot;
+                      href="https://themeselection.com/item/category/admin-templates/"
                       target="_blank"
                       class="footer-link me-4"
                       >Admin Templates</a
                     >
 
-                    <a href="https://themeselection.com/license/&quot; class="footer-link me-4" target="_blank">License</a>
+                    <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
                     <a
-                      href="https://themeselection.com/item/category/bootstrap-admin-templates/&quot;
+                      href="https://themeselection.com/item/category/bootstrap-admin-templates/"
                       target="_blank"
                       class="footer-link me-4"
                       >Bootstrap Dashboard</a
                     >
 
                     <a
-                      href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/&quot;
+                      href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/"
                       target="_blank"
                       class="footer-link me-4"
                       >Documentation</a
                     >
 
                     <a
-                      href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/issues&quot;
+                      href="https://github.com/themeselection/sneat-bootstrap-html-admin-template-free/issues"
                       target="_blank"
                       class="footer-link"
                       >Support</a

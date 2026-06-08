@@ -11,7 +11,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Listagem | Nível Acesso </title>
+    <title>Cadastro | Usuários</title>
 
     <meta name="description" content="" />
 
@@ -143,7 +143,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="pages-account-settings-notifications.html" class="menu-link">
+                  <a href="{{ route('nivel-acesso.listar') }}" class="menu-link">
                     <div class="text-truncate" data-i18n="Notifications">Listagem</div>
                   </a>
                 </li>
@@ -300,54 +300,60 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="col-md-12">
                   <div class="card">
-                    <h5 class="card-header text-center">Listagem de Nível de Acesso</h5>
+                    <h5 class="card-header text-center">Cadastro de Usuários 👤</h5>
                     <div class="card-body">
-                        <div class="card">
-                            <h5 class="card-header">Listagem</h5>
-                            <div class="table-responsive text-nowrap">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Nível de Acesso</th>
-                                    <th>Criado em</th>
-                                    <th>Atualizado em</th>
-                                    <th>Ações</th>
-                                </tr>
-                                </thead>
-                                <tbody class="table-border-bottom-0">
-                                    @forelse ($nivelAcesso as $nivel)
-                                <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nivel->nivel_acesso}}</strong></td>
-                                    <td><span class="badge bg-label-success me-1">{{ $nivel->created_at }}</span></td>
-                                    <td><span class="badge bg-label-primary me-1">{{$nivel->updated_at}}</span></td>
-                                    <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('nivel-acesso.atualizar', $nivel->id) }}"
-                                            ><i class="bx bx-edit-alt me-1"></i> Editar</a>
-
-                                        <form action="{{ route('nivel-acesso.deletar', $nivel->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja deletar este registro?');">
-                                            @csrf
-                                            @method('DELETE')
-
-                                            <button type="submit" class="dropdown-item">
-                                                <i class="bx bx-trash me-1"></i> Deletar
-                                            </button>
-                                        </form>
-                                        </div>
+                      <form action="{{ route('usuarios.salvar')}}" method="POST">
+                        @csrf
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="nome" class="form-label">Nome</label>
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="nome"
+                                        name="nome"
+                                        placeholder="Digite seu nome "/>
                                     </div>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>  Nenhum Nível de Acesso Encontrado 🔎</tr>
-                                @endforelse
-                                </tbody>
-                            </table>
-                            </div>
-                        </div>
+                                    <div class="col-md-4">
+                                        <label for="data_nascimento" class="form-label">Data de Nascimento</label>
+                                        <input
+                                        type="date"
+                                        class="form-control"
+                                        id="data_nascimento"
+                                        name="data_nascimento"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="telefone" class="form-label">Telefone</label>
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="telefone"
+                                        name="telefone"
+                                        placeholder=" (00) 00000-0000"/>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <label for="cpf" class="form-label">CPF</label>
+                                        <input
+                                        type="text"
+                                        class="form-control"
+                                        id="cpf"
+                                        name="cpf"
+                                        placeholder=" 000.000.000-00 "/>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="nivelAcessoId" class="form-label">Nível de Acesso</label>
+                                        <select class="form-select" id="nivelAcessoId" name="nivelAcessoId" arial-label="Default select example">
+                                            @foreach ($nivelAcesso as $nivel)
+                                                <option value="{{ $nivel->id }}">{{ $nivel->nivel_acesso }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            <button type="submit" class="btn btn-primary col-md-12 mt-4">Cadastrar</button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -443,6 +449,9 @@
     {{-- Importação Sweet Alert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    {{-- Importação do InputMask --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.9/jquery.inputmask.min.js"></script>
+
     <script>
       function exibeSweetAlert(icone, titulo, texto){
         Swal.fire({
@@ -451,6 +460,9 @@
           icon: icone
       });
       }
+
+      Inputmask("(99) 99999-9999").mask("#telefone");
+      Inputmask("999.999.999-99").mask("#cpf");
     </script>
 
     @if(session('success'))

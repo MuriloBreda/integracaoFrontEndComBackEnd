@@ -11,7 +11,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Listagem | Nível Acesso </title>
+    <title>Listagem | Usuários </title>
 
     <meta name="description" content="" />
 
@@ -300,50 +300,84 @@
             <div class="container-xxl flex-grow-1 container-p-y">
               <div class="col-md-12">
                   <div class="card">
-                    <h5 class="card-header text-center">Listagem de Nível de Acesso</h5>
+                    <h5 class="card-header text-center">Listagem de usuários</h5>
                     <div class="card-body">
                         <div class="card">
                             <h5 class="card-header">Listagem</h5>
                             <div class="table-responsive text-nowrap">
                             <table class="table">
                                 <thead>
-                                <tr>
-                                    <th>Nível de Acesso</th>
-                                    <th>Criado em</th>
-                                    <th>Atualizado em</th>
-                                    <th>Ações</th>
-                                </tr>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Data Nascimento</th>
+                                        <th>Telefone</th>
+                                        <th>Nível de Acesso</th>
+                                        <th>Ações</th>
+                                    </tr>
                                 </thead>
-                                <tbody class="table-border-bottom-0">
-                                    @forelse ($nivelAcesso as $nivel)
-                                <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$nivel->nivel_acesso}}</strong></td>
-                                    <td><span class="badge bg-label-success me-1">{{ $nivel->created_at }}</span></td>
-                                    <td><span class="badge bg-label-primary me-1">{{$nivel->updated_at}}</span></td>
-                                    <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                        <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('nivel-acesso.atualizar', $nivel->id) }}"
-                                            ><i class="bx bx-edit-alt me-1"></i> Editar</a>
 
-                                        <form action="{{ route('nivel-acesso.deletar', $nivel->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja deletar este registro?');">
-                                            @csrf
-                                            @method('DELETE')
+                                <tbody>
+                                    @forelse($usuarios as $usuario)
+                                        <tr>
+                                            <td>
+                                                <strong>{{ $usuario->nome }}</strong>
+                                            </td>
 
-                                            <button type="submit" class="dropdown-item">
-                                                <i class="bx bx-trash me-1"></i> Deletar
-                                            </button>
-                                        </form>
-                                        </div>
-                                    </div>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>  Nenhum Nível de Acesso Encontrado 🔎</tr>
-                                @endforelse
+                                            <td>
+                                                {{ $usuario->data_nascimento }}
+                                            </td>
+
+                                            <td>
+                                                {{ $usuario->telefone }}
+                                            </td>
+
+                                            <td>
+                                                <span class="badge bg-label-primary">
+                                                    {{ $usuario->nivelAcesso->nivel_acesso }}
+                                                </span>
+                                            </td>
+
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button
+                                                        type="button"
+                                                        class="btn p-0 dropdown-toggle hide-arrow"
+                                                        data-bs-toggle="dropdown">
+                                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                                    </button>
+
+                                                    <div class="dropdown-menu">
+                                                        <a
+                                                            class="dropdown-item"
+                                                            href="{{ route('usuarios.atualizar', $usuario->id) }}">
+                                                            <i class="bx bx-edit-alt me-1"></i>
+                                                            Editar
+                                                        </a>
+
+                                                        <form
+                                                            action="{{ route('usuarios.deletar', $usuario->id) }}"
+                                                            method="POST"
+                                                            onsubmit="return confirm('Tem certeza que deseja excluir este usuário?');">
+
+                                                            @csrf
+                                                            @method('DELETE')
+
+                                                            <button type="submit" class="dropdown-item">
+                                                                <i class="bx bx-trash me-1"></i>
+                                                                Deletar
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="5" class="text-center">
+                                                Nenhum usuário encontrado 🔎
+                                            </td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                             </div>
